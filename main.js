@@ -1,9 +1,9 @@
-// 버튼 클릭 상태 추적
-var introButtonPressed = false;
-const introApplyButton = document.getElementById('apply-button'); // 상단 인트로 버튼
-const mainApplyButton = document.getElementById('main-apply-button'); // 하단 실제 신청 버튼
+// 모바일 환경 감지 함수
+function isMobileDevice() {
+  return (window.innerWidth <= 700 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+}
 
-// 커스텀 알림창 함수 (링크 매개변수 추가)
+// 커스텀 알림창 함수 (모바일 최적화 버전)
 function showCustomAlert(message, callback = null) {
   // 이미 알림창이 있다면 제거
   const existingAlert = document.querySelector('.custom-alert');
@@ -49,7 +49,7 @@ function showCustomAlert(message, callback = null) {
     }, 300);
   });
   
-  // 배경 클릭 시 알림창 닫기
+  // 배경 클릭 시 알림창 닫기 (모바일에서는 더 큰 터치 영역 제공)
   alertBox.addEventListener('click', (e) => {
     if (e.target === alertBox) {
       alertBox.classList.remove('show');
@@ -61,9 +61,30 @@ function showCustomAlert(message, callback = null) {
       }, 300);
     }
   });
+  
+  // 모바일에서는 자동으로 5초 후 닫히게 설정
+  if (isMobileDevice()) {
+    setTimeout(() => {
+      if (document.body.contains(alertBox)) {
+        alertBox.classList.remove('show');
+        setTimeout(() => {
+          if (document.body.contains(alertBox)) {
+            alertBox.remove();
+            if (callback) {
+              callback();
+            }
+          }
+        }, 300);
+      }
+    }, 5000);
+  }
 }
 
 // 인트로 화면의 신청 버튼 클릭 이벤트
+var introButtonPressed = false;
+const introApplyButton = document.getElementById('apply-button');
+const mainApplyButton = document.getElementById('main-apply-button');
+
 if (introApplyButton) {
   introApplyButton.addEventListener('click', function (event) {
     // 기본 동작 방지 (링크 이동 방지)
@@ -98,5 +119,31 @@ if (mainApplyButton) {
       // 알림창 닫힌 후 링크로 이동
       window.open(applicationUrl, '_blank');
     });
-  }); 
+  });
 }
+
+// 페이지 로드 완료 시 실행
+document.addEventListener('DOMContentLoaded', function() {
+  // 모바일 디바이스 감지 및 body에 클래스 추가
+  if (isMobileDevice()) {
+    document.body.classList.add('mobile-device');
+  }
+  
+  // 부드러운 스크롤 지원 확인 및 폴백
+  if (typeof window.scroll !== 'function' || 
+      !('scrollBehavior' in document.documentElement.style)) {
+    // 부드러운 스크롤 폴백 구현
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId !== "#") {
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({behavior: 'smooth'});
+          }
+        }
+      });
+    });
+  }
+});
