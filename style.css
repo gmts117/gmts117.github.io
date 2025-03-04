@@ -1,685 +1,796 @@
-@font-face {
-  font-family: 'MBC1961M';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/MBC1961M.woff2')
-    format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'SokchoBadaDotum';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/SokchoBadaDotum.woff2')
-    format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* 기본 스타일 초기화 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'SokchoBadaDotum', sans-serif;
-  line-height: 1.6;
-  color: #646464;
-  background-color: #fff;
-  overflow-x: hidden;
-}
-
-/* 타이포그래피 클래스 */
-.mont { font-family: SokchoBadaDotum; }
-.pret { font-family: SokchoBadaDotum; }
-.tacen { text-align: center; }
-.whiteT { color: #dadfee; }
-.darkT { color: #646464; }
-.darkB { background: #646464; }
-
-.bigxl { font-size: clamp(4rem, 10vw, 15rem); }
-.bigl { font-size: clamp(2.5rem, 5vw, 5rem); }
-.big { font-size: clamp(1.5rem, 2vw, 2rem); }
-.mid { font-size: clamp(1rem, 1.5vw, 1.5rem); }
-.smls { font-size: clamp(0.8rem, 1vw, 1rem); }
-.smlxs { font-size: clamp(0.6rem, 0.8vw, 0.8rem); }
-
-.bold { font-weight: 700; }
-.regu { font-weight: 500; }
-.ligt { font-weight: 300; }
-
-/* 섹션 레이아웃 */
-.app {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.section {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 1rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.section-content {
-  max-width: 1200px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  z-index: 1;
-}
-
-.dark-section {
-  background-color: #646464;
-  color: #dadfee;
-}
-
-/* 로고 및 인트로 섹션 */
-.logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.logo-img {
-  height: clamp(6rem, 15vw, 15rem);
-  margin-right: 2rem;
-  border-radius: 4px;
-}
-
-/* 버튼 스타일 */
-.btn {
-  display: inline-block;
-  padding: 0.8rem 2.5rem;
-  border: #4e5668 1px solid;
-  color: #4e5668;
-  border-radius: 4px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #4e5668;
-  color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.btn-large {
-  display: inline-block;
-  padding: 1.2rem 3.5rem;
-  border: #4e5668 1px solid;
-  color: #4e5668;
-  border-radius: 4px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.btn-large:hover {
-  background-color: #4e5668;
-  color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* 동아리 자랑 섹션 */
-.title-container {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.PR1, .PR2 {
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #646464;
-  color: transparent;
-}
-
-.PR1 {
-  margin-right: auto;
-  margin-left: 5%;
-}
-
-.PR2 {
-  margin-left: auto;
-  margin-right: 5%;
-}
-
-.achievements-list {
-  text-align: center;
-  line-height: 2.5;
-  margin-bottom: 2rem;
-}
-
-/* 커리큘럼 그리드 */
-.curriculum-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3rem;
-  margin-top: 2rem;
-  width: 100%;
-}
-
-.curriculum-item {
-  display: flex;
-  width: 45%;
-  max-width: 500px;
-  padding: 1.5rem;
-  gap: 1.5rem;
-  align-items: center;
-  border-top: #4e5668 1px solid;
-  border-bottom: #4e5668 1px solid;
-  transition: all 0.3s ease;
-}
-
-.curriculum-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-}
-
-.curriculum-item img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-}
-
-/* 실적 그리드 */
-.achievements-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 3rem;
-  width: 100%;
-}
-
-.achievement-card {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  background-color: #f8f8f8;
-}
-
-.achievement-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-.achievement-img {
-  width: 100%;
-  height: 180px;
-  overflow: hidden;
-}
-
-.achievement-thumbnail {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.achievement-card:hover .achievement-thumbnail {
-  transform: scale(1.1);
-}
-
-.achievement-content {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.8rem;
-}
-
-/* 커리큘럼 일정 */
-.curriculum-schedule {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 1200px;
-}
-
-.schedule-item {
-  background-color: #dadfee;
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-.schedule-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.schedule-item h3 {
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #4e5668;
-  padding-bottom: 0.5rem;
-}
-
-/* 연락처 섹션 */
-.contact-link {
-  display: block;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
-}
-
-.contact-link:hover {
-  transform: translateY(-3px);
-  text-decoration: underline;
-}
-
-.contact-link i {
-  margin-right: 0.5rem;
-}
-
-/* 푸터 */
-.footer {
-  padding: 1rem;
-  text-align: center;
-}
-
-.footer a {
-  color: #dadfee;
-  text-decoration: underline;
-}
-
-/* 기존 스타일에서 충돌 방지를 위한 추가 CSS */
-/* 페이지 및 섹션 스타일 */
-.page {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-  gap: 2rem;
-  padding: 5rem 1rem;
-  box-sizing: border-box;
-}
-
-/* 로고 스타일 */
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo-img {
-  height: clamp(6rem, 15vw, 15rem);
-  margin-right: 2rem;
-  border-radius: 4px;
-}
-
-/* 커리큘럼 섹션 */
-.curs {
-  display: flex;
-  padding: 2rem;
-  width: 100%;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-}
-
-.cur {
-  display: flex;
-  padding: 1.5rem;
-  width: 45%;
-  max-width: 500px;
-  height: auto;
-  min-height: 10rem;
-  flex-direction: row;
-  align-items: center;
-  border-top: #4e5668 1px solid;
-  border-bottom: #4e5668 1px solid;
-  gap: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.cur:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-}
-
-.cur p {
-  word-break: keep-all;
-}
-
-.cur img {
-  height: 80px;
-  width: 80px;
-  object-fit: contain;
-  border-radius: 4px;
-}
-
-/* 실적 섹션 */
-.achievements-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  width: 100%;
-  max-width: 1200px;
-}
-
-.achievement-item {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  background-color: #f8f8f8;
-}
-
-.achievement-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-.achievement-link {
-  margin-top: 0.5rem;
-  padding: 0.5rem 1.5rem;
-  border: #4e5668 1px solid;
-  color: #4e5668;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  font-weight: 600;
-}
-
-.achievement-link:hover {
-  background-color: #4e5668;
-  color: #fff;
-  transform: translateY(-3px);
-}
-
-/* 커리큘럼 상세 */
-.curriculum {
-  padding: 2rem 5%;
-  min-height: auto;
-}
-
-.curri-box-wrap {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 1200px;
-}
-
-.curri-box {
-  background-color: #dadfee;
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-.curri-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.curri-box h4 {
-  padding: 0 5%;
-}
-
-/* 신청 링크 */
-.aplic-link {
-  text-align: center;
-  padding: 1rem 3rem;
-  border: #4e5668 1px solid;
-  color: #4e5668;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.aplic-link:hover {
-  background-color: #4e5668;
-  color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* 스크롤바 스타일 */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0000001a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 100px;
-}
-
-/* 반응형 디자인 */
-@media (max-width: 1400px) {
-  .bigxl {
-    font-size: 8rem;
-  }
-  .bigl {
-    font-size: 3rem;
-  }
-  .big {
-    font-size: 1.5rem;
-  }
-  .mid {
-    font-size: 1.1rem;
-  }
-  .smls {
-    font-size: 0.9rem;
-  }
-  .smlxs {
-    font-size: 0.7rem;
+/* ==========================================================================
+   폰트 정의 - 웹폰트 로드
+   ========================================================================== */
+   @font-face {
+    font-family: 'MBC1961M';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/MBC1961M.woff2')
+      format('woff2');
+    font-weight: normal;
+    font-style: normal;
   }
   
-  .logo-img {
-    height: 12rem;
-    margin-right: 2rem;
+  @font-face {
+    font-family: 'SokchoBadaDotum';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/SokchoBadaDotum.woff2')
+      format('woff2');
+    font-weight: normal;
+    font-style: normal;
   }
   
-  .achievements-container {
-    max-width: 900px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .bigxl {
-    font-size: 6rem;
-  }
-  .bigl {
-    font-size: 2rem;
-  }
-  .big {
-    font-size: 1.3rem;
-  }
-  .mid {
-    font-size: 1rem;
-  }
-  .smls {
-    font-size: 0.8rem;
-  }
-  .smlxs {
-    font-size: 0.6rem;
-  }
-  
-  .logo-img {
-    height: 9rem;
-    margin-right: 2rem;
-  }
-  
-  .cur {
-    width: 80%;
-  }
-  
-  .achievement-item {
-    width: 280px;
-  }
-}
-
-@media (max-width: 800px) {
-  .bigxl {
-    font-size: 5rem;
-  }
-  .bigl {
-    font-size: 1.8rem;
-  }
-  .big {
-    font-size: 1.1rem;
-  }
-  .mid {
-    font-size: 0.9rem;
-  }
-  .smls {
-    font-size: 0.7rem;
-  }
-  .smlxs {
-    font-size: 0.5rem;
-  }
-  
-  .logo-img {
-    height: 9rem;
-    margin-right: 1rem;
-  }
-  
-  .cur {
-    width: 90%;
-    flex-direction: column;
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  .cur img {
-    margin-bottom: 1rem;
-  }
-  
-  .achievement-item {
-    width: 260px;
-  }
-}
-
-@media (max-width: 700px) {
-  .bigxl {
-    font-size: 3rem;
-  }
-  .bigl {
-    font-size: 1.5rem;
-  }
-  .big {
-    font-size: 1rem;
-  }
-  .mid {
-    font-size: 0.8rem;
-  }
-  .smls {
-    font-size: 0.6rem;
-  }
-  .smlxs {
-    font-size: 0.5rem;
-  }
-  
-  .logo-img {
-    height: 4.5rem;
-    margin-right: 1rem;
-  }
-  
-  .page {
-    padding: 3rem 1rem;
-    min-height: auto;
-  }
-  
-  .achievements-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .achievement-item {
-    width: 90%;
-    max-width: 350px;
-  }
-  
-  .curs {
-    padding: 1rem;
-  }
-  
-  .cur {
-    min-height: auto;
-    padding: 1rem;
-  }
-  
-  .PR-title {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .PR1, .PR2 {
+  /* ==========================================================================
+     기본 리셋 및 베이스 스타일
+     ========================================================================== */
+  * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
   }
   
-  .curri-box-wrap {
-    grid-template-columns: 1fr;
+  html {
+    scroll-behavior: smooth; /* 부드러운 스크롤 효과 */
   }
-}
-
-@media (max-width: 500px) {
-  .cur {
+  
+  body {
+    font-family: 'SokchoBadaDotum', sans-serif;
+    line-height: 1.6;
+    color: #646464;
+    background-color: #fff;
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+  }
+  
+  /* ==========================================================================
+     타이포그래피 유틸리티 클래스
+     ========================================================================== */
+  /* 폰트 패밀리 */
+  .mont { font-family: SokchoBadaDotum; }
+  .pret { font-family: SokchoBadaDotum; }
+  
+  /* 텍스트 정렬 */
+  .tacen { text-align: center; }
+  
+  /* 텍스트 및 배경 색상 */
+  .whiteT { color: #dadfee; } /* 밝은 텍스트 색상 (밝은 회색) */
+  .darkT { color: #646464; }  /* 어두운 텍스트 색상 (짙은 회색) */
+  .darkB { background: #646464; } /* 어두운 배경 색상 */
+  
+  /* 폰트 크기 - 반응형으로 설정 (clamp 사용) */
+  .bigxl { font-size: clamp(4rem, 10vw, 15rem); } /* 초대형 제목 */
+  .bigl { font-size: clamp(2.5rem, 5vw, 5rem); }  /* 대형 제목 */
+  .big { font-size: clamp(1.5rem, 2vw, 2rem); }   /* 중대형 제목 */
+  .mid { font-size: clamp(1rem, 1.5vw, 1.5rem); } /* 중간 크기 텍스트 */
+  .smls { font-size: clamp(0.8rem, 1vw, 1rem); }  /* 작은 텍스트 */
+  .smlxs { font-size: clamp(0.6rem, 0.8vw, 0.8rem); } /* 초소형 텍스트 */
+  
+  /* 폰트 두께 */
+  .bold { font-weight: 700; } /* 굵게 */
+  .regu { font-weight: 500; } /* 중간 */
+  .ligt { font-weight: 300; } /* 얇게 */
+  
+  /* ==========================================================================
+     레이아웃 구조 - 기본 섹션 레이아웃
+     ========================================================================== */
+  .app {
+    display: flex;
+    flex-direction: column;
     width: 100%;
   }
   
-  .aplic-link {
-    padding: 0.8rem 2rem;
+  /* 기본 섹션 스타일 */
+  .section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 1rem;
+    position: relative;
+    overflow: hidden;
   }
-}
-
-@media (max-width: 350px) {
-  .bigxl {
-    font-size: 2.5rem;
+  
+  .section-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 1;
   }
-  .bigl {
-    font-size: 1.3rem;
+  
+  .dark-section {
+    background-color: #646464;
+    color: #dadfee;
   }
-  .big {
-    font-size: 0.9rem;
+  
+  /* 페이지 및 섹션 스타일 */
+  .page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    gap: 2rem;
+    padding: 5rem 1rem;
+    box-sizing: border-box;
   }
-  .mid {
-    font-size: 0.7rem;
+  
+  /* ==========================================================================
+     로고 및 인트로 섹션 스타일
+     ========================================================================== */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
   }
-  .smls {
-    font-size: 0.5rem;
-  }
-  .smlxs {
-    font-size: 0.4rem;
+  
+  .logo {
+    display: flex;
+    align-items: center;
   }
   
   .logo-img {
-    height: 4rem;
+    height: clamp(6rem, 15vw, 15rem);
+    margin-right: 2rem;
+    border-radius: 4px;
+  }
+  
+  /* ==========================================================================
+     버튼 및 인터랙션 요소 스타일
+     ========================================================================== */
+  /* 기본 버튼 */
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 2.5rem;
+    border: #4e5668 1px solid;
+    color: #4e5668;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #4e5668;
+    color: #fff;
+    transform: translateY(-3px); /* 호버 시 살짝 위로 올라가는 효과 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 큰 버튼 */
+  .btn-large {
+    display: inline-block;
+    padding: 1.2rem 3.5rem;
+    border: #4e5668 1px solid;
+    color: #4e5668;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-large:hover {
+    background-color: #4e5668;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 신청 링크 버튼 */
+  .aplic-link {
+    text-align: center;
+    padding: 1rem 3rem;
+    border: #4e5668 1px solid;
+    color: #4e5668;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .aplic-link:hover {
+    background-color: #4e5668;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ==========================================================================
+     동아리 자랑 섹션 스타일
+     ========================================================================== */
+  .title-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  /* 아웃라인 텍스트 스타일 (텍스트 외곽선만 표시) */
+  .PR1, .PR2 {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #646464;
+    color: transparent;
+  }
+  
+  .PR1 {
+    margin-right: auto;
+    margin-left: 5%;
+  }
+  
+  .PR2 {
+    margin-left: auto;
+    margin-right: 5%;
+  }
+  
+  .achievements-list {
+    text-align: center;
+    line-height: 2.5;
+    margin-bottom: 2rem;
+  }
+  
+  /* ==========================================================================
+     커리큘럼 섹션 스타일
+     ========================================================================== */
+  /* 커리큘럼 그리드 레이아웃 */
+  .curriculum-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    width: 100%;
+  }
+  
+  .curriculum-item {
+    display: flex;
+    width: 45%;
+    max-width: 500px;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    align-items: center;
+    border-top: #4e5668 1px solid;
+    border-bottom: #4e5668 1px solid;
+    transition: all 0.3s ease;
+  }
+  
+  .curriculum-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  }
+  
+  .curriculum-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+  
+  /* 커리큘럼 항목 컨테이너 */
+  .curs {
+    display: flex;
+    padding: 2rem;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+  
+  /* 커리큘럼 항목 */
+  .cur {
+    display: flex;
+    padding: 1.5rem;
+    width: 45%;
+    max-width: 500px;
+    height: auto;
+    min-height: 10rem;
+    flex-direction: row;
+    align-items: center;
+    border-top: #4e5668 1px solid;
+    border-bottom: #4e5668 1px solid;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .cur:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  }
+  
+  .cur p {
+    word-break: keep-all; /* 단어 중간에서 줄바꿈하지 않음 */
+  }
+  
+  .cur img {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+  
+  /* 커리큘럼 상세 섹션 */
+  .curriculum {
+    padding: 2rem 5%;
+    min-height: auto;
+  }
+  
+  /* 커리큘럼 박스 그리드 레이아웃 */
+  .curri-box-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  /* 커리큘럼 개별 박스 */
+  .curri-box {
+    background-color: #dadfee;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .curri-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .curri-box h4 {
+    padding: 0 5%;
+  }
+  
+  /* 일정 관련 컴포넌트 */
+  .curriculum-schedule {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .schedule-item {
+    background-color: #dadfee;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .schedule-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .schedule-item h3 {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #4e5668;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* ==========================================================================
+     실적 섹션 스타일
+     ========================================================================== */
+  /* 실적 그리드 컨테이너 */
+  .achievements-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    width: 100%;
+  }
+  
+  /* 실적 카드 기본 스타일 */
+  .achievement-card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background-color: #f8f8f8;
+  }
+  
+  .achievement-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* 실적 항목 컨테이너 */
+  .achievements-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  /* 실적 항목 */
+  .achievement-item {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background-color: #f8f8f8;
+  }
+  
+  .achievement-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* 실적 이미지 컨테이너 */
+  .achievement-img {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+  }
+  
+  /* 실적 썸네일 이미지 */
+  .achievement-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  /* 호버 시 이미지 확대 효과 */
+  .achievement-item:hover .achievement-thumbnail,
+  .achievement-card:hover .achievement-thumbnail {
+    transform: scale(1.1);
+  }
+  
+  /* 실적 내용 컨테이너 */
+  .achievement-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.8rem;
+  }
+  
+  /* 실적 링크 버튼 */
+  .achievement-link {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    border: #4e5668 1px solid;
+    color: #4e5668;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+  }
+  
+  .achievement-link:hover {
+    background-color: #4e5668;
+    color: #fff;
+    transform: translateY(-3px);
+  }
+  
+  /* ==========================================================================
+     연락처 및 푸터 섹션 스타일
+     ========================================================================== */
+  /* 연락처 링크 스타일 */
+  .contact-link {
+    display: block;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-link:hover {
+    transform: translateY(-3px);
+    text-decoration: underline;
+  }
+  
+  .contact-link i {
     margin-right: 0.5rem;
+  }
+  
+  /* 푸터 스타일 */
+  .footer {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .footer a {
+    color: #dadfee;
+    text-decoration: underline;
+  }
+  
+  /* ==========================================================================
+     스크롤바 스타일 커스터마이징
+     ========================================================================== */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #0000001a;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 100px;
+  }
+  
+  /* ==========================================================================
+     반응형 디자인 - 다양한 디바이스 크기에 맞게 조정
+     ========================================================================== */
+  /* 대형 화면 (1400px 이하) */
+  @media (max-width: 1400px) {
+    /* 폰트 크기 조정 */
+    .bigxl { font-size: 8rem; }
+    .bigl { font-size: 3rem; }
+    .big { font-size: 1.5rem; }
+    .mid { font-size: 1.1rem; }
+    .smls { font-size: 0.9rem; }
+    .smlxs { font-size: 0.7rem; }
+    
+    /* 로고 크기 조정 */
+    .logo-img {
+      height: 12rem;
+      margin-right: 2rem;
+    }
+    
+    /* 실적 컨테이너 최대 너비 조정 */
+    .achievements-container {
+      max-width: 900px;
+    }
+  }
+  
+  /* 중형 화면 (1000px 이하) */
+  @media (max-width: 1000px) {
+    /* 폰트 크기 조정 */
+    .bigxl { font-size: 6rem; }
+    .bigl { font-size: 2rem; }
+    .big { font-size: 1.3rem; }
+    .mid { font-size: 1rem; }
+    .smls { font-size: 0.8rem; }
+    .smlxs { font-size: 0.6rem; }
+    
+    /* 로고 크기 조정 */
+    .logo-img {
+      height: 9rem;
+      margin-right: 2rem;
+    }
+    
+    /* 커리큘럼 항목 너비 조정 */
+    .cur {
+      width: 80%;
+    }
+    
+    /* 실적 항목 너비 조정 */
+    .achievement-item {
+      width: 280px;
+    }
+  }
+  
+  /* 태블릿 크기 (800px 이하) */
+  @media (max-width: 800px) {
+    /* 폰트 크기 조정 */
+    .bigxl { font-size: 5rem; }
+    .bigl { font-size: 1.8rem; }
+    .big { font-size: 1.1rem; }
+    .mid { font-size: 0.9rem; }
+    .smls { font-size: 0.7rem; }
+    .smlxs { font-size: 0.5rem; }
+    
+    /* 로고 크기 조정 */
+    .logo-img {
+      height: 9rem;
+      margin-right: 1rem;
+    }
+    
+    /* 커리큘럼 항목 레이아웃 변경 (세로 방향으로) */
+    .cur {
+      width: 90%;
+      flex-direction: column;
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    .cur img {
+      margin-bottom: 1rem;
+    }
+    
+    /* 실적 항목 너비 조정 */
+    .achievement-item {
+      width: 260px;
+    }
+  }
+  
+  /* 모바일 크기 (700px 이하) */
+  @media (max-width: 700px) {
+    /* 폰트 크기 조정 */
+    .bigxl { font-size: 3rem; }
+    .bigl { font-size: 1.5rem; }
+    .big { font-size: 1rem; }
+    .mid { font-size: 0.8rem; }
+    .smls { font-size: 0.6rem; }
+    .smlxs { font-size: 0.5rem; }
+    
+    /* 로고 크기 조정 */
+    .logo-img {
+      height: 4.5rem;
+      margin-right: 1rem;
+    }
+    
+    /* 페이지 패딩 감소 및 최소 높이 조정 */
+    .page {
+      padding: 3rem 1rem;
+      min-height: auto;
+    }
+    
+    /* 실적 컨테이너 세로 배치로 변경 */
+    .achievements-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* 실적 항목 크기 조정 */
+    .achievement-item {
+      width: 90%;
+      max-width: 350px;
+    }
+    
+    /* 커리큘럼 패딩 감소 */
+    .curs {
+      padding: 1rem;
+    }
+    
+    /* 커리큘럼 항목 최소 높이 조정 */
+    .cur {
+      min-height: auto;
+      padding: 1rem;
+    }
+    
+    /* PR 제목 세로 배치로 변경 */
+    .PR-title {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* PR 마진 제거 */
+    .PR1, .PR2 {
+      margin: 0;
+    }
+    
+    /* 커리큘럼 박스 1열로 배치 */
+    .curri-box-wrap {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* 작은 모바일 크기 (500px 이하) */
+  @media (max-width: 500px) {
+    /* 커리큘럼 항목 전체 너비로 변경 */
+    .cur {
+      width: 100%;
+    }
+    
+    /* 신청 링크 패딩 축소 */
+    .aplic-link {
+      padding: 0.8rem 2rem;
+    }
+  }
+  
+  /* 초소형 모바일 크기 (350px 이하) */
+  @media (max-width: 350px) {
+    /* 폰트 크기 추가 감소 */
+    .bigxl { font-size: 2.5rem; }
+    .bigl { font-size: 1.3rem; }
+    .big { font-size: 0.9rem; }
+    .mid { font-size: 0.7rem; }
+    .smls { font-size: 0.5rem; }
+    .smlxs { font-size: 0.4rem; }
+    
+    /* 로고 크기 추가 감소 */
+    .logo-img {
+      height: 4rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+/* 커스텀 알림창 스타일 */
+.custom-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.custom-alert.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.alert-content {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-top: 5px solid #4e5668;
+}
+
+.custom-alert.show .alert-content {
+  transform: translateY(0);
+}
+
+.alert-icon {
+  font-size: 2.5rem;
+  color: #4e5668;
+  margin-bottom: 1rem;
+}
+
+.alert-message {
+  color: #646464;
+  font-size: 1.2rem;
+  font-family: 'SokchoBadaDotum', sans-serif;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.alert-close {
+  background-color: #4e5668;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 2.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'SokchoBadaDotum', sans-serif;
+  font-weight: 700;
+}
+
+.alert-close:hover {
+  background-color: #3a4050;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 모바일 대응 */
+@media (max-width: 480px) {
+  .alert-content {
+    padding: 1.5rem;
+  }
+  
+  .alert-icon {
+    font-size: 2rem;
+  }
+  
+  .alert-message {
+    font-size: 1rem;
+  }
+  
+  .alert-close {
+    padding: 0.5rem 2rem;
+    font-size: 0.9rem;
   }
 }
