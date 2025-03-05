@@ -1,5 +1,9 @@
+/**
+ * It is IT 동아리 홈페이지 스타일시트 (최적화)
+ */
+
 /* ==========================================================================
-   폰트 정의 - 웹폰트 로드
+   1. 폰트 정의
    ========================================================================== */
    @font-face {
     font-family: 'MBC1961M';
@@ -18,7 +22,7 @@
   }
   
   /* ==========================================================================
-     기본 리셋 및 베이스 스타일
+     2. 기본 리셋 및 베이스 스타일
      ========================================================================== */
   * {
     margin: 0;
@@ -28,7 +32,7 @@
   }
   
   html {
-    scroll-behavior: smooth; /* 부드러운 스크롤 효과 */
+    scroll-behavior: smooth;
   }
   
   body {
@@ -36,39 +40,38 @@
     line-height: 1.6;
     color: #646464;
     background-color: #fff;
-    overflow-x: hidden; /* 가로 스크롤 방지 */
+    overflow-x: hidden;
   }
   
   /* ==========================================================================
-     타이포그래피 유틸리티 클래스
+     3. 타이포그래피 유틸리티 클래스
      ========================================================================== */
   /* 폰트 패밀리 */
-  .mont { font-family: SokchoBadaDotum; }
-  .pret { font-family: SokchoBadaDotum; }
+  .mont, .pret { font-family: SokchoBadaDotum; }
   
   /* 텍스트 정렬 */
   .tacen { text-align: center; }
   
   /* 텍스트 및 배경 색상 */
-  .whiteT { color: #dadfee; } /* 밝은 텍스트 색상 (밝은 회색) */
-  .darkT { color: #646464; }  /* 어두운 텍스트 색상 (짙은 회색) */
-  .darkB { background: #646464; } /* 어두운 배경 색상 */
+  .whiteT { color: #dadfee; }
+  .darkT { color: #646464; }
+  .darkB { background: #646464; }
   
-  /* 폰트 크기 - 반응형으로 설정 (clamp 사용) */
-  .bigxl { font-size: clamp(4rem, 10vw, 15rem); } /* 초대형 제목 */
-  .bigl { font-size: clamp(2.5rem, 5vw, 5rem); }  /* 대형 제목 */
-  .big { font-size: clamp(1.5rem, 2vw, 2rem); }   /* 중대형 제목 */
-  .mid { font-size: clamp(1rem, 1.5vw, 1.5rem); } /* 중간 크기 텍스트 */
-  .smls { font-size: clamp(0.8rem, 1vw, 1rem); }  /* 작은 텍스트 */
-  .smlxs { font-size: clamp(0.6rem, 0.8vw, 0.8rem); } /* 초소형 텍스트 */
+  /* 폰트 크기 - 반응형 설정 */
+  .bigxl { font-size: clamp(4rem, 10vw, 15rem); }
+  .bigl { font-size: clamp(2.5rem, 5vw, 5rem); }
+  .big { font-size: clamp(1.5rem, 2vw, 2rem); }
+  .mid { font-size: clamp(1rem, 1.5vw, 1.5rem); }
+  .smls { font-size: clamp(0.8rem, 1vw, 1rem); }
+  .smlxs { font-size: clamp(0.6rem, 0.8vw, 0.8rem); }
   
   /* 폰트 두께 */
-  .bold { font-weight: 700; } /* 굵게 */
-  .regu { font-weight: 500; } /* 중간 */
-  .ligt { font-weight: 300; } /* 얇게 */
+  .bold { font-weight: 700; }
+  .regu { font-weight: 500; }
+  .ligt { font-weight: 300; }
   
   /* ==========================================================================
-     레이아웃 구조 - 기본 섹션 레이아웃
+     4. 레이아웃 구조
      ========================================================================== */
   .app {
     display: flex;
@@ -76,35 +79,7 @@
     width: 100%;
   }
   
-  /* 기본 섹션 스타일 */
-  .section {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5rem 1rem;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .section-content {
-    max-width: 1200px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    z-index: 1;
-  }
-  
-  .dark-section {
-    background-color: #646464;
-    color: #dadfee;
-  }
-  
-  /* 페이지 및 섹션 스타일 */
+  /* 기본 페이지 스타일 */
   .page {
     width: 100%;
     min-height: 100vh;
@@ -114,20 +89,13 @@
     align-items: center;
     background: #fff;
     gap: 2rem;
-    padding: 5rem 1rem;
+    padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 3vw, 3rem);
     box-sizing: border-box;
   }
   
   /* ==========================================================================
-     로고 및 인트로 섹션 스타일
+     5. 로고 및 버튼 스타일
      ========================================================================== */
-  .logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
-  }
-  
   .logo {
     display: flex;
     align-items: center;
@@ -137,45 +105,6 @@
     height: clamp(6rem, 15vw, 15rem);
     margin-right: 2rem;
     border-radius: 4px;
-  }
-  
-  /* ==========================================================================
-     버튼 및 인터랙션 요소 스타일
-     ========================================================================== */
-  /* 기본 버튼 */
-  .btn {
-    display: inline-block;
-    padding: 0.8rem 2.5rem;
-    border: #4e5668 1px solid;
-    color: #4e5668;
-    border-radius: 4px;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-  
-  .btn:hover {
-    background-color: #4e5668;
-    color: #fff;
-    transform: translateY(-3px); /* 호버 시 살짝 위로 올라가는 효과 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 큰 버튼 */
-  .btn-large {
-    display: inline-block;
-    padding: 1.2rem 3.5rem;
-    border: #4e5668 1px solid;
-    color: #4e5668;
-    border-radius: 4px;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-large:hover {
-    background-color: #4e5668;
-    color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   /* 신청 링크 버튼 */
@@ -196,17 +125,9 @@
   }
   
   /* ==========================================================================
-     동아리 자랑 섹션 스타일
+     6. 동아리 자랑 섹션 스타일
      ========================================================================== */
-  .title-container {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
-  
-  /* 아웃라인 텍스트 스타일 (텍스트 외곽선만 표시) */
+  /* 아웃라인 텍스트 스타일 */
   .PR1, .PR2 {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #646464;
@@ -223,48 +144,9 @@
     margin-right: 5%;
   }
   
-  .achievements-list {
-    text-align: center;
-    line-height: 2.5;
-    margin-bottom: 2rem;
-  }
-  
   /* ==========================================================================
-     커리큘럼 섹션 스타일
+     7. 커리큘럼 스타일
      ========================================================================== */
-  /* 커리큘럼 그리드 레이아웃 */
-  .curriculum-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 2rem;
-    width: 100%;
-  }
-  
-  .curriculum-item {
-    display: flex;
-    width: 45%;
-    max-width: 500px;
-    padding: 1.5rem;
-    gap: 1.5rem;
-    align-items: center;
-    border-top: #4e5668 1px solid;
-    border-bottom: #4e5668 1px solid;
-    transition: all 0.3s ease;
-  }
-  
-  .curriculum-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-  }
-  
-  .curriculum-item img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-  }
-  
   /* 커리큘럼 항목 컨테이너 */
   .curs {
     display: flex;
@@ -276,7 +158,7 @@
     gap: 3rem;
   }
   
-  /* 커리큘럼 항목 */
+  /* 커리큘럼 항목 - 각 교육 주제 카드 */
   .cur {
     display: flex;
     padding: 1.5rem;
@@ -298,7 +180,7 @@
   }
   
   .cur p {
-    word-break: keep-all; /* 단어 중간에서 줄바꿈하지 않음 */
+    word-break: keep-all;
   }
   
   .cur img {
@@ -337,68 +219,9 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   }
   
-  .curri-box h4 {
-    padding: 0 5%;
-  }
-  
-  /* 일정 관련 컴포넌트 */
-  .curriculum-schedule {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    width: 100%;
-    max-width: 1200px;
-  }
-  
-  .schedule-item {
-    background-color: #dadfee;
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-  }
-  
-  .schedule-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  }
-  
-  .schedule-item h3 {
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #4e5668;
-    padding-bottom: 0.5rem;
-  }
-  
   /* ==========================================================================
-     실적 섹션 스타일
+     8. 실적 섹션 스타일
      ========================================================================== */
-  /* 실적 그리드 컨테이너 */
-  .achievements-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
-    width: 100%;
-  }
-  
-  /* 실적 카드 기본 스타일 */
-  .achievement-card {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    background-color: #f8f8f8;
-  }
-  
-  .achievement-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  }
-  
   /* 실적 항목 컨테이너 */
   .achievements-container {
     display: flex;
@@ -409,7 +232,7 @@
     max-width: 1200px;
   }
   
-  /* 실적 항목 */
+  /* 실적 항목 - 각 프로젝트 카드 */
   .achievement-item {
     display: flex;
     flex-direction: column;
@@ -442,8 +265,7 @@
   }
   
   /* 호버 시 이미지 확대 효과 */
-  .achievement-item:hover .achievement-thumbnail,
-  .achievement-card:hover .achievement-thumbnail {
+  .achievement-item:hover .achievement-thumbnail {
     transform: scale(1.1);
   }
   
@@ -475,37 +297,144 @@
   }
   
   /* ==========================================================================
-     연락처 및 푸터 섹션 스타일
+     9. 연락처 및 푸터 섹션 스타일
      ========================================================================== */
-  /* 연락처 링크 스타일 */
-  .contact-link {
+  .contact {
+    background-color: #646464;
+    color: #dadfee;
+    padding: 5rem 1rem;
+  }
+  
+  .contact a {
+    color: #dadfee;
+    transition: all 0.3s ease;
     display: block;
     margin-bottom: 1rem;
-    transition: all 0.3s ease;
   }
   
-  .contact-link:hover {
+  .contact a:hover {
+    color: #ffffff;
     transform: translateY(-3px);
-    text-decoration: underline;
   }
   
-  .contact-link i {
+  .contact i {
     margin-right: 0.5rem;
   }
   
-  /* 푸터 스타일 */
-  .footer {
-    padding: 1rem;
-    text-align: center;
+  .contact p {
+    margin-bottom: 0.5rem;
   }
   
-  .footer a {
+  /* 얇은 푸터 스타일 */
+  .footer-thin {
+    background-color: #525252;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .footer-thin p {
+    margin: 0;
+    font-size: 0.6rem;
+    line-height: 1;
+  }
+  
+  .footer-thin a {
     color: #dadfee;
     text-decoration: underline;
   }
   
+  .no-hover:hover {
+    transform: none;
+    color: #dadfee;
+  }
+  
   /* ==========================================================================
-     스크롤바 스타일 커스터마이징
+     10. 커스텀 알림창 스타일
+     ========================================================================== */
+  .custom-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .custom-alert.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .alert-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: clamp(1.5rem, 5vw, 2rem);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-top: 5px solid #4e5668;
+  }
+  
+  .custom-alert.show .alert-content {
+    transform: translateY(0);
+  }
+  
+  .alert-icon {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+    color: #4e5668;
+    margin-bottom: 1rem;
+  }
+  
+  .alert-message {
+    color: #646464;
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    font-family: 'SokchoBadaDotum', sans-serif;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    line-height: 1.6;
+    word-break: keep-all;
+  }
+  
+  .alert-close {
+    background-color: #4e5668;
+    color: #fff;
+    border: none;
+    padding: clamp(0.5rem, 4vw, 0.6rem) clamp(1.5rem, 8vw, 2.5rem);
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'SokchoBadaDotum', sans-serif;
+    font-weight: 700;
+    min-width: 120px;
+  }
+  
+  .alert-close:hover,
+  .alert-close:active,
+  .alert-close:focus {
+    background-color: #3a4050;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ==========================================================================
+     11. 스크롤바 스타일
      ========================================================================== */
   ::-webkit-scrollbar {
     width: 10px;
@@ -521,74 +450,10 @@
   }
   
   /* ==========================================================================
-     반응형 디자인 - 다양한 디바이스 크기에 맞게 조정
+     12. 반응형 디자인
      ========================================================================== */
-  /* 대형 화면 (1400px 이하) */
-  @media (max-width: 1400px) {
-    /* 폰트 크기 조정 */
-    .bigxl { font-size: 8rem; }
-    .bigl { font-size: 3rem; }
-    .big { font-size: 1.5rem; }
-    .mid { font-size: 1.1rem; }
-    .smls { font-size: 0.9rem; }
-    .smlxs { font-size: 0.7rem; }
-    
-    /* 로고 크기 조정 */
-    .logo-img {
-      height: 12rem;
-      margin-right: 2rem;
-    }
-    
-    /* 실적 컨테이너 최대 너비 조정 */
-    .achievements-container {
-      max-width: 900px;
-    }
-  }
-  
-  /* 중형 화면 (1000px 이하) */
-  @media (max-width: 1000px) {
-    /* 폰트 크기 조정 */
-    .bigxl { font-size: 6rem; }
-    .bigl { font-size: 2rem; }
-    .big { font-size: 1.3rem; }
-    .mid { font-size: 1rem; }
-    .smls { font-size: 0.8rem; }
-    .smlxs { font-size: 0.6rem; }
-    
-    /* 로고 크기 조정 */
-    .logo-img {
-      height: 9rem;
-      margin-right: 2rem;
-    }
-    
-    /* 커리큘럼 항목 너비 조정 */
-    .cur {
-      width: 80%;
-    }
-    
-    /* 실적 항목 너비 조정 */
-    .achievement-item {
-      width: 280px;
-    }
-  }
-  
   /* 태블릿 크기 (800px 이하) */
   @media (max-width: 800px) {
-    /* 폰트 크기 조정 */
-    .bigxl { font-size: 5rem; }
-    .bigl { font-size: 1.8rem; }
-    .big { font-size: 1.1rem; }
-    .mid { font-size: 0.9rem; }
-    .smls { font-size: 0.7rem; }
-    .smlxs { font-size: 0.5rem; }
-    
-    /* 로고 크기 조정 */
-    .logo-img {
-      height: 9rem;
-      margin-right: 1rem;
-    }
-    
-    /* 커리큘럼 항목 레이아웃 변경 (세로 방향으로) */
     .cur {
       width: 90%;
       flex-direction: column;
@@ -600,567 +465,194 @@
       margin-bottom: 1rem;
     }
     
-    /* 실적 항목 너비 조정 */
     .achievement-item {
       width: 260px;
     }
   }
   
-  /* 모바일 크기 (700px 이하) */
-  @media (max-width: 700px) {
-    /* 폰트 크기 조정 */
-    .bigxl { font-size: 3rem; }
-    .bigl { font-size: 1.5rem; }
-    .big { font-size: 1rem; }
-    .mid { font-size: 0.8rem; }
-    .smls { font-size: 0.6rem; }
-    .smlxs { font-size: 0.5rem; }
-    
-    /* 로고 크기 조정 */
-    .logo-img {
-      height: 4.5rem;
-      margin-right: 1rem;
-    }
-    
-    /* 페이지 패딩 감소 및 최소 높이 조정 */
-    .page {
-      padding: 3rem 1rem;
-      min-height: auto;
-    }
-    
-    /* 실적 컨테이너 세로 배치로 변경 */
-    .achievements-container {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    /* 실적 항목 크기 조정 */
-    .achievement-item {
-      width: 90%;
-      max-width: 350px;
-    }
-    
-    /* 커리큘럼 패딩 감소 */
-    .curs {
-      padding: 1rem;
-    }
-    
-    /* 커리큘럼 항목 최소 높이 조정 */
-    .cur {
-      min-height: auto;
-      padding: 1rem;
-    }
-    
-    /* PR 제목 세로 배치로 변경 */
-    .PR-title {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    /* PR 마진 제거 */
-    .PR1, .PR2 {
-      margin: 0;
-    }
-    
-    /* 커리큘럼 박스 1열로 배치 */
-    .curri-box-wrap {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  /* 작은 모바일 크기 (500px 이하) */
-  @media (max-width: 500px) {
-    /* 커리큘럼 항목 전체 너비로 변경 */
-    .cur {
-      width: 100%;
-    }
-    
-    /* 신청 링크 패딩 축소 */
-    .aplic-link {
-      padding: 0.8rem 2rem;
-    }
-  }
-  
-  /* 초소형 모바일 크기 (350px 이하) */
-  @media (max-width: 350px) {
-    /* 폰트 크기 추가 감소 */
-    .bigxl { font-size: 2.5rem; }
-    .bigl { font-size: 1.3rem; }
-    .big { font-size: 0.9rem; }
-    .mid { font-size: 0.7rem; }
-    .smls { font-size: 0.5rem; }
-    .smlxs { font-size: 0.4rem; }
-    
-    /* 로고 크기 추가 감소 */
-    .logo-img {
-      height: 4rem;
-      margin-right: 0.5rem;
-    }
-  }
+/* 모바일 환경 최적화를 위한 스타일 추가 */
 
-/* 커스텀 알림창 스타일 */
-.custom-alert {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.custom-alert.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.alert-content {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 2rem;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  transform: translateY(-20px);
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  border-top: 5px solid #4e5668;
-}
-
-.custom-alert.show .alert-content {
-  transform: translateY(0);
-}
-
-.alert-icon {
-  font-size: 2.5rem;
-  color: #4e5668;
-  margin-bottom: 1rem;
-}
-
-.alert-message {
-  color: #646464;
-  font-size: 1.2rem;
-  font-family: 'SokchoBadaDotum', sans-serif;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-  line-height: 1.6;
-}
-
-.alert-close {
-  background-color: #4e5668;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 2.5rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'SokchoBadaDotum', sans-serif;
-  font-weight: 700;
-}
-
-.alert-close:hover {
-  background-color: #3a4050;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* 모바일 대응 */
-@media (max-width: 480px) {
-  .alert-content {
-    padding: 1.5rem;
-  }
-  
-  .alert-icon {
-    font-size: 2rem;
-  }
-  
-  .alert-message {
-    font-size: 1rem;
-  }
-  
-  .alert-close {
-    padding: 0.5rem 2rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* Contact 섹션 스타일 */
-.contact {
-  background-color: #646464;  /* 어두운 회색 배경 */
-  color: #dadfee;  /* 밝은 색상 텍스트 */
-  padding: 5rem 1rem;
-}
-
-.contact a {
-  color: #dadfee;
-  transition: all 0.3s ease;
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.contact a:hover {
-  color: #ffffff;
-  transform: translateY(-3px);
-}
-
-.contact i {
-  margin-right: 0.5rem;
-}
-
-.contact p {
-  margin-bottom: 0.5rem;
-}
-
-/* 마지막 푸터 부분 */
-.contact.darkB:last-child {
-  padding: 1rem;
-  background-color: #525252;  /* 약간 더 어두운 회색 */
-}
-
-.contact.darkB:last-child a {
-  text-decoration: underline;
-}
-
-/* 어두운 배경에 대한 공통 클래스 */
-.darkB {
-  background-color: #646464;
-}
-
-.whiteT {
-  color: #dadfee;
-}
-
-/* 얇은 푸터 스타일 */
-.footer-thin {
-  background-color: #525252;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  text-align: left;
-}
-
-.footer-thin p {
-  margin: 0;
-  font-size: 0.6rem;
-  line-height: 1;
-}
-
-.footer-thin a {
-  color: #dadfee;
-  text-decoration: underline;
-}
-
-/* 호버링 효과 제거 */
-.no-hover:hover {
-  transform: none;
-  color: #dadfee;
-}
-
-/* 모바일 화면 개선을 위한 추가 스타일 */
-
-/* 기본 반응형 패딩 조정 */
-.page {
-  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 3vw, 3rem);
-}
-
-/* 모바일에서 로고 레이아웃 개선 */
+/* 모바일에서의 기본 여백과 타이포그래피 개선 */
 @media (max-width: 700px) {
-  .logo {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .page {
+    padding: 4rem 1.5rem;
+    min-height: 100vh; /* 높이 유지 */
+    gap: 1.5rem; /* 요소 간 간격 줄임 */
+    justify-content: flex-start; /* 시작부터 콘텐츠 배치 */
+    padding-top: 5rem; /* 상단 여백 늘림 */
+  }
+  
+  /* 로고 섹션 개선 */
+  .intro {
+    justify-content: center; /* 중앙 정렬 유지 */
+    padding-top: 15vh; /* 상단 여백 늘림 */
   }
   
   .logo-img {
-    margin-right: 0;
-    margin-bottom: 1rem;
+    height: clamp(4rem, 15vw, 6rem); /* 로고 크기 최적화 */
+    margin-bottom: 0.5rem;
   }
   
-  /* 인트로 섹션 레이아웃 개선 */
-  .intro {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+  /* 타이포그래피 크기 조정 */
+  .bigxl {
+    font-size: clamp(2.5rem, 8vw, 4rem); /* 모바일에서 크기 최적화 */
   }
   
-  /* 커리큘럼 항목 레이아웃 개선 */
-  .curriculum-item {
-    width: 100%;
-    flex-direction: column;
+  .bigl {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+  }
+  
+  /* 커리큘럼 항목 정렬 */
+  .cur {
+    padding: 1.5rem;
+    min-height: auto;
+    gap: 1rem;
+    flex-direction: row; /* 가로 정렬로 변경 */
     align-items: center;
-    text-align: center;
-    padding: 1.5rem 1rem;
+    justify-content: flex-start;
+    text-align: left; /* 왼쪽 정렬로 변경 */
   }
   
-  .curriculum-item img {
-    margin-bottom: 1rem;
+  .cur img {
+    height: 60px;
+    width: 60px;
+    margin-bottom: 0;
+    flex-shrink: 0; /* 이미지 크기 고정 */
   }
   
-  /* 실적 항목 레이아웃 개선 */
-  .achievements-container {
-    gap: 1.5rem;
-  }
-  
-  .achievement-item {
-    width: 100%;
-    max-width: 340px;
-  }
-  
-  /* 커스텀 알림창 모바일 최적화 */
-  .alert-content {
-    width: 95%;
-    padding: 1.2rem;
-  }
-  
-  .alert-message {
-    font-size: 1rem;
-    margin-bottom: 1.2rem;
-  }
-  
-  /* 타이틀 컨테이너 모바일 레이아웃 개선 */
-  .title-container {
-    flex-direction: column;
+  /* 동아리 자랑 섹션 개선 */
+  .PR-title {
+    flex-direction: row; /* 가로 정렬 유지 */
+    flex-wrap: wrap; /* 줄바꿈 허용 */
+    justify-content: center;
     gap: 0.5rem;
   }
   
   .PR1, .PR2 {
-    margin: 0;
+    margin: 0 0.5rem;
   }
   
-  /* 동아리 자랑 섹션 텍스트 줄바꿈 보장 */
-  .pride p {
-    word-break: keep-all;
+  /* 실적 항목 개선 */
+  .achievement-item {
+    width: 100%;
+    max-width: 400px;
   }
-
-  /* 신청 버튼 위치 조정 */
-  .application {
-    padding-top: 3rem;
-    padding-bottom: 5rem;
+  
+  /* 신청 버튼 스타일 개선 */
+  .aplic-link {
+    max-width: 250px;
+    padding: 0.9rem 0;
+    width: 80%;
+    display: block; /* 버튼 전체 영역 클릭 가능 */
+  }
+  
+  /* 커리큘럼 박스 개선 */
+  .curri-box {
+    padding: 1.5rem;
+    height: auto;
   }
 }
 
-/* 작은 모바일 화면 최적화 (500px 이하) */
-@media (max-width: 500px) {
-  /* 폰트 크기 미세 조정 */
-  .bigxl { font-size: clamp(2.5rem, 8vw, 3rem); }
-  .bigl { font-size: clamp(1.3rem, 5vw, 1.5rem); }
-  
-  /* 버튼 스타일 조정 */
-  .aplic-link, .btn-large, .btn {
-    padding: 0.8rem 1.5rem;
-    width: 80%;
-    max-width: 280px;
-    text-align: center;
+/* 작은 모바일 디바이스 (iPhone SE 등) */
+@media (max-width: 380px) {
+  .page {
+    padding: 3rem 1rem;
   }
   
-  /* 섹션 여백 최적화 */
-  .section, .page {
-    padding: 3rem 1rem;
+  .bigl {
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+  }
+  
+  .big {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+  }
+  
+  .mid {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+  }
+  
+  /* 지원 버튼 크기 조정 */
+  #main-apply-button {
+    width: 90%;
+    max-width: 220px;
+  }
+  
+  /* 커리큘럼 섹션 여백 조정 */
+  .curriculum1 .curs {
+    padding: 0.5rem;
     gap: 1.5rem;
   }
   
-  /* 커리큘럼 항목 여백 조정 */
-  .curri-box {
-    padding: 1.2rem;
+  /* 매우 작은 화면에서 로고 레이아웃 개선 */
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
-  /* 실적 컨테이너 여백 조정 */
-  .achievements-container {
-    padding: 0 0.5rem;
-  }
-  
-  /* 타이틀 마진 조정 */
-  .bigl, .bigxl {
+  .logo-img {
+    margin-right: 0;
     margin-bottom: 0.5rem;
   }
 }
 
-/* 초소형 모바일 화면 최적화 (350px 이하) */
-@media (max-width: 350px) {
-  /* 폰트 추가 축소 */
-  .mid { font-size: 0.8rem; }
-  
-  /* 섹션 여백 추가 축소 */
-  .section, .page {
-    padding: 2.5rem 0.8rem;
-    gap: 1.2rem;
-  }
-  
-  /* 버튼 너비 조정 */
-  .aplic-link, .btn-large, .btn {
-    width: 90%;
-    max-width: 250px;
-  }
-  
-  /* 로고 이미지 크기 조정 */
-  .logo-img {
-    height: 5rem;
-  }
-}
-
-/* 가로 모드 최적화 */
+/* 가로 모드 최적화 개선 */
 @media (max-height: 500px) and (orientation: landscape) {
   .page {
-    padding: 2rem 1rem;
-    min-height: auto;
+    padding: 2rem 5%;
+    min-height: 500px; /* 최소 높이 설정 */
   }
   
-  .section {
-    min-height: auto;
-    padding: 2rem 1rem;
+  .logo-img {
+    height: 3.5rem;
   }
   
-  .bigxl { font-size: 2.5rem; }
-  .bigl { font-size: 1.5rem; }
-  
-  .intro, .duction, .pride {
+  /* 가로 모드에서 2열 레이아웃 적용 */
+  .curs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
-}
-
-/* 커스텀 알림창 모바일 최적화 스타일 */
-.custom-alert {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.custom-alert.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.alert-content {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: clamp(1.5rem, 5vw, 2rem);
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  transform: translateY(-20px);
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  border-top: 5px solid #4e5668;
-}
-
-.custom-alert.show .alert-content {
-  transform: translateY(0);
-}
-
-.alert-icon {
-  font-size: clamp(2rem, 6vw, 2.5rem);
-  color: #4e5668;
-  margin-bottom: 1rem;
-}
-
-.alert-message {
-  color: #646464;
-  font-size: clamp(1rem, 4vw, 1.2rem);
-  font-family: 'SokchoBadaDotum', sans-serif;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-  line-height: 1.6;
-  word-break: keep-all;
-}
-
-.alert-close {
-  background-color: #4e5668;
-  color: #fff;
-  border: none;
-  padding: clamp(0.5rem, 4vw, 0.6rem) clamp(1.5rem, 8vw, 2.5rem);
-  font-size: clamp(0.9rem, 3vw, 1rem);
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'SokchoBadaDotum', sans-serif;
-  font-weight: 700;
-  min-width: 120px;
-}
-
-.alert-close:hover, .alert-close:active, .alert-close:focus {
-  background-color: #3a4050;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* 모바일 대응 */
-@media (max-width: 480px) {
-  .alert-content {
-    padding: 1.2rem;
-    width: 95%;
+  
+  .cur {
+    width: 100%;
+    min-height: auto;
   }
   
-  .alert-icon {
-    font-size: 1.8rem;
-    margin-bottom: 0.8rem;
+  /* 실적 섹션 가로 모드 최적화 */
+  .achievements-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    width: 100%;
   }
   
-  .alert-message {
-    font-size: 0.95rem;
-    margin-bottom: 1.2rem;
-  }
-  
-  .alert-close {
-    padding: 0.5rem 1.8rem;
-    font-size: 0.9rem;
-    min-width: 100px;
+  .achievement-item {
+    width: 100%;
   }
 }
 
-/* 초소형 화면 대응 */
-@media (max-width: 350px) {
-  .alert-content {
-    padding: 1rem;
-    width: 95%;
+/* 터치 인터랙션 개선 */
+@media (hover: none) {
+  /* 터치 기기에서 호버 효과 대신 활성화 효과 */
+  .aplic-link:active,
+  .achievement-link:active,
+  .cur:active,
+  .curri-box:active {
+    transform: translateY(-2px);
+    transition: transform 0.1s ease;
   }
   
-  .alert-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.6rem;
-  }
-  
-  .alert-message {
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
-  }
-  
-  .alert-close {
-    padding: 0.4rem 1.5rem;
-    font-size: 0.8rem;
+  /* 버튼 터치 영역 확대 */
+  .aplic-link,
+  .achievement-link {
+    padding: 0.8rem 2rem;
   }
 }
 
-/* 모바일 터치 영역 최적화 */
-.mobile-device .alert-close {
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
-  min-width: 140px;
+/* 고해상도(Retina) 디스플레이 최적화 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logo-img, .achievement-thumbnail {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
 }
-
-.mobile-device .custom-alert {
-  -webkit-tap-highlight-color: transparent;
-}
-
