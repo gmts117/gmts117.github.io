@@ -12,6 +12,46 @@
     <meta name="theme-color" content="#4e5668" media="(prefers-color-scheme: dark)" />
 
     
+    <style>
+        /* 반응형 텍스트 줄바꿈 최적화 */
+        @media (max-width: 700px) {
+            .responsive-text {
+                word-break: keep-all;
+                overflow-wrap: break-word;
+            }
+            
+            .mobile-break {
+                display: block;
+                height: 0.8em;
+            }
+            
+            .text-chunk {
+                display: inline-block;
+            }
+            
+            .text-spacer {
+                display: block;
+                height: 1.5em;
+            }
+        }
+        
+        @media (min-width: 701px) {
+            .mobile-break {
+                display: none;
+            }
+            
+            .text-chunk::after {
+                content: '\A';
+                white-space: pre;
+            }
+            
+            .text-spacer {
+                display: block;
+                height: 1em;
+            }
+        }
+    </style>
+    
     <!-- 파비콘 설정 (브라우저 탭에 표시되는 아이콘) -->
     <link rel="shortcut icon" href="img/logo-removebg.png" type="image/x-icon" />
 
@@ -67,9 +107,11 @@
             <p class="darkT big bold mont">어떤 동아리 인가요?</p>
             
             <!-- 동아리 소개 내용 본문 -->
-            <p class="darkT mid pret tacen" style="line-height: 2em;">
-                명실상부 저현고등학교 최고의 IT 동아리 " <span class="bold mont">It is IT</span> " 는<br>
-                인공지능 모델 플랫폼과 프로그래밍 언어를 학습 및 활용하여<br>
+            <p class="darkT mid pret tacen responsive-text" style="line-height: 2em;">
+                명실상부 저현고등학교 최고의 IT 동아리 " <span class="bold mont">It is IT</span> " 는
+                <span class="mobile-break"></span>
+                인공지능 모델 플랫폼과 프로그래밍 언어를 학습 및 활용하여
+                <span class="mobile-break"></span>
                 다양한 문제를 탐구 및 해결하는 동아리입니다
             </p>
         </section>
@@ -235,10 +277,11 @@
             <p class="darkT bigl bold mont tacen">올해는 어떻게 진행하나요?</p>
             
             <!-- 커리큘럼 운영 방식 설명 -->
-            <p class="darkT mid pret tacen">
-                1학기 초에 간단한 프로젝트 탐색 활동 후<br>
-                남은 차시 동안 "조별 프로젝트"를 진행합니다<br><br>
-                총 10차시로 진행할 예정입니다.
+            <p class="darkT mid pret tacen responsive-text">
+                <span class="text-chunk">1학기 초에 간단한 프로젝트 탐색 활동 후</span>
+                <span class="text-chunk">남은 차시 동안 "조별 프로젝트"를 진행합니다</span>
+                <span class="text-spacer"></span>
+                <span class="text-chunk">총 10차시로 진행할 예정입니다.</span>
             </p>
         </section>
 
