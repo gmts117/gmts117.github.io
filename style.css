@@ -580,8 +580,8 @@
   
   /* 동메달 효과 */
   .medal-bronze .medal-ribbon {
-    background: linear-gradient(135deg, #b87333 0%, #804000 100%);
-    border: 1px solid #cd7f32;
+    background: linear-gradient(135deg, #CD7F32 0%, #ffac47 100%);
+    border: 1px solid #ff8e1c;
   }
   
   .medal-bronze .medal-text {
