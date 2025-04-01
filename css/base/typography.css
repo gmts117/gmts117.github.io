@@ -1,0 +1,83 @@
+/**
+ * 타이포그래피 관련 스타일
+ * 폰트, 텍스트 스타일 및 텍스트 관련 유틸리티 클래스 정의
+ */
+
+/* 폰트 정의 */
+@font-face {
+    font-family: 'MBC1961M';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/MBC1961M.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* 폰트 로딩 최적화 */
+  }
+  
+  @font-face {
+    font-family: 'SokchoBadaDotum';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/SokchoBadaDotum.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* 폰트 로딩 최적화 */
+  }
+  
+  /* 폰트 패밀리 유틸리티 클래스 */
+  .mont, .pret { font-family: SokchoBadaDotum; }
+  
+  /* 텍스트 정렬 유틸리티 클래스 */
+  .tacen { text-align: center; }
+  
+  /* 폰트 색상 유틸리티 클래스 */
+  .whiteT { color: #dadfee; }
+  .darkT { color: #646464; }
+  .darkB { background: #646464; }
+  
+  /* 폰트 크기 - 반응형 설정 */
+  .bigxl { font-size: clamp(4rem, 10vw, 15rem); }
+  .bigl { font-size: clamp(2.5rem, 5vw, 5rem); }
+  .big { font-size: clamp(1.5rem, 2vw, 2rem); }
+  .mid { font-size: clamp(1rem, 1.5vw, 1.5rem); }
+  .smls { font-size: clamp(0.8rem, 1vw, 1rem); }
+  .smlxs { font-size: clamp(0.6rem, 0.8vw, 0.8rem); }
+  
+  /* 폰트 두께 유틸리티 클래스 */
+  .bold { font-weight: 700; }
+  .regu { font-weight: 500; }
+  .ligt { font-weight: 300; }
+  
+  /* 반응형 텍스트 패턴 */
+  .responsive-text .mobile-break {
+    display: block;
+    height: 0.8em;
+  }
+  
+  @media (min-width: 701px) {
+    .responsive-text .mobile-break {
+      display: none;
+    }
+    
+    .responsive-text .text-chunk::after {
+      content: '\A';
+      white-space: pre;
+    }
+    
+    .responsive-text .text-spacer {
+      display: block;
+      height: 1em;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .responsive-text {
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    
+    .responsive-text .text-spacer {
+      display: block;
+      height: 1.5em;
+    }
+    
+    .responsive-text .text-chunk {
+      display: inline-block;
+    }
+  }

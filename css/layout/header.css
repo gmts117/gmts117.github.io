@@ -1,0 +1,59 @@
+/**
+ * 헤더/인트로 섹션 스타일
+ * 사이트 최상단에 표시되는 인트로 섹션 관련 스타일
+ */
+
+/* 로고 스타일 */
+.logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-img {
+    height: clamp(6rem, 15vw, 15rem);
+    margin-right: 2rem;
+    border-radius: 4px;
+  }
+  
+  /* 로고 설명 텍스트 */
+  .logo-des {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* 새로운 방문객을 위한 플래시 효과 */
+  @keyframes logo-flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  
+  /* 첫 방문시 로고 효과 */
+  .first-visit .logo-img {
+    animation: logo-flash 2s ease-in-out;
+  }
+  
+  /* 반응형 조정 */
+  @media (max-width: 767px) {
+    .logo {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .logo-img {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+    
+    .aplic-link {
+      margin-top: 1rem;
+    }
+  }
+  
+  /* 로고 및 인트로 애니메이션 지원 */
+  .intro {
+    overflow: hidden;
+  }
+  
+  .logo, .logo-des, #apply-button {
+    position: relative;
+  }

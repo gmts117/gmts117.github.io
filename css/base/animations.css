@@ -1,0 +1,121 @@
+/**
+ * 애니메이션 관련 스타일
+ * 전역에서 사용되는 애니메이션 정의
+ */
+
+/* 빛나는 효과 애니메이션 */
+@keyframes shine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  
+  /* 메달 파티클 효과 애니메이션 */
+  @keyframes particles {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.5) translateY(-10px);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+  
+  /* 구분선 반짝임 효과 애니메이션 */
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  
+  /* 요소 안정화 애니메이션 (새로고침 후) */
+  @keyframes stabilize {
+    0% { opacity: 0.99; }
+    100% { opacity: 1; }
+  }
+  
+  /* 페이드인 트랜스폼 애니메이션 */
+  @keyframes fadeInTransform {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ScrollReveal 관련 스타일 개선 */
+  /* 애니메이션이 완료된 요소 표시 */
+  .sr-reveal-complete {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  /* 새로고침 후 로딩 중 요소 숨김 방지 */
+  [data-sr] {
+    visibility: visible;
+  }
+  
+  /* 메달 및 프로젝트 항목 애니메이션 개선 */
+  .achievement-item, 
+  .project-item,
+  .curri-box {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out, box-shadow 0.3s ease;
+  }
+  
+  /* 가시성 전환을 위한 지연 애니메이션 처리 */
+  @media (prefers-reduced-motion: no-preference) {
+    .achievement-item.visible,
+    .project-item.visible,
+    .curri-box.visible {
+      animation: fadeInTransform 0.5s ease forwards;
+    }
+  }
+  
+  /* 새로고침 상태 요소 표시 보장 */
+  .medal-gold.sr-reveal-complete .shine-effect,
+  .medal-bronze.sr-reveal-complete .shine-effect {
+    animation-play-state: running !important;
+  }
+  
+  /* 새로고침 시 안정화 애니메이션 강화 */
+  .curri-box.reloaded {
+    animation: stabilize 0.1s ease forwards !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* 애니메이션 항목 임시 숨김 방지 */
+  html.sr .achievement-item,
+  html.sr .curri-box,
+  html.sr .medal-gold,
+  html.sr .medal-bronze {
+    visibility: visible;
+  }
+  
+  /* 스크롤 중 애니메이션 성능 최적화 */
+  @media (prefers-reduced-motion: no-preference) {
+    .scrolling .achievement-item,
+    .scrolling .project-item,
+    .scrolling .curri-box,
+    .scrolling .medal-gold,
+    .scrolling .medal-bronze {
+      transition: none !important;
+    }
+  }
