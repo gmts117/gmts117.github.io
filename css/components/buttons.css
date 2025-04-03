@@ -1,0 +1,104 @@
+/**
+ * 버튼 관련 스타일
+ * 버튼 및 클릭 가능한 요소 스타일 정의
+ */
+
+/* 신청 링크 버튼 */
+.aplic-link {
+    text-align: center;
+    padding: 1rem 3rem;
+    border: #4e5668 1px solid;
+    color: #4e5668;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  
+  .aplic-link:hover {
+    background-color: #4e5668;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 실적 링크 버튼 */
+  .achievement-link {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    border: #4e5668 1px solid;
+    color: #4e5668;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    display: inline-block;
+  }
+  
+  .achievement-link:hover {
+    background-color: #4e5668;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 연락처 링크 */
+  .contact a {
+    color: #dadfee;
+    transition: all 0.3s ease;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  .contact a:hover {
+    color: #ffffff;
+    transform: translateY(-3px);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 확인 버튼 (알림창용) */
+  .alert-close {
+    background-color: #4e5668;
+    color: #fff;
+    border: none;
+    padding: clamp(0.5rem, 4vw, 0.6rem) clamp(1.5rem, 8vw, 2.5rem);
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'SokchoBadaDotum', sans-serif;
+    font-weight: 700;
+    min-width: 120px;
+  }
+  
+  .alert-close:hover,
+  .alert-close:active,
+  .alert-close:focus {
+    background-color: #3a4050;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 일반 링크 호버 없음 (푸터용) */
+  .no-hover:hover {
+    transform: none;
+    color: #dadfee;
+  }
+  
+  /* 버튼 포커스 상태 */
+  .aplic-link:focus,
+  .achievement-link:focus,
+  .alert-close:focus {
+    outline: 2px solid #4e5668;
+    outline-offset: 2px;
+  }
+  
+  /* 모바일에서 버튼 사이즈 최적화 */
+  @media (max-width: 500px) {
+    .aplic-link {
+      padding: 0.8rem 2rem;
+    }
+    
+    .achievement-link {
+      padding: 0.4rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  }

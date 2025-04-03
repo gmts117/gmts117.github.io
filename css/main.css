@@ -1,0 +1,56 @@
+/**
+ * It is IT 동아리 홈페이지 메인 스타일시트
+ * 각 섹션별 CSS 파일을 임포트합니다
+ */
+
+/* 베이스 스타일 */
+@import 'base/reset.css';
+@import 'base/typography.css';
+@import 'base/animations.css';
+
+/* 컴포넌트 스타일 */
+@import 'components/buttons.css';
+@import 'components/alerts.css';
+@import 'components/medals.css';
+@import 'components/curriculum-box.css';
+
+/* 레이아웃 스타일 */
+@import 'layout/header.css';
+@import 'layout/about.css';
+@import 'layout/pride.css';
+@import 'layout/curriculum.css';
+@import 'layout/achievements.css';
+@import 'layout/application.css';
+@import 'layout/footer.css';
+
+/* 유틸리티 스타일 */
+@import 'utils/responsive.css';
+@import 'utils/helpers.css';
+
+/* 모바일 수평 스크롤 방지 스타일 */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 앱 컨테이너 스타일 */
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* 기본 페이지 스타일 */
+.page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  gap: 2rem;
+  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 3vw, 3rem);
+  box-sizing: border-box;
+}
